@@ -8,9 +8,9 @@ using namespace std;
   string name;
 
   void readCandidate(){
-     cout <<"Enter the name of the candidate : " << endl;
+     cout <<"Enter  candidate name : " << endl;
      cin >> name;
-     cout << "Enter the age of the candidate: " << endl;
+     cout << "Enter  candidate age: " << endl;
      cin >> age ;
   }
   
