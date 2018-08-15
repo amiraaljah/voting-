@@ -3,28 +3,23 @@
 using namespace std;
 
 struct Candidate{
-
  string name;
  int age;
-
 };
 
  void readCandidate(Candidate candidate){
-
  cout << " Enter the candidate name: " << endl;
  cin >>candidate.name;
  cout << " Enter the candidate age: " << endl;
- cin >> candidate.age;
-   }
+ cin >> candidate.age; 
+ }
 
-   void writeCandidate(Candidate candidate){
+  void writeCandidate(Candidate candidate){
  cout <<"\n name : " <<candidate.name  << "\n age " << candidate.age << endl;
-
 }
 
 int main(){
   Candidate candidate;
   Candidate readCandidate();
   Candidate writeCandidate();
-  return 0;
 }
