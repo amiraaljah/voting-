@@ -4,28 +4,22 @@ using namespace std;
 struct Candidate{
   int age;
   string name;
-  void readCandidate(Candidate *ptr);
-  void writeCandidate(Candidate *ptr);
 };
 
-
-void readCandidate(Candidate *ptr){
-  cout << "Enter the candidate name: " << endl;
-  cin >>  (* ptr).name;
-  cout << "Enter the candidate age: " << endl;
-  cin >>  (* ptr).age;
+void readCandidate(Candidate *x){
+  cout << "Enter the candidate name: \n" 
+  cin >>  x->name;
+  cout << "Enter the candidate age: \n " 
+  cin >>  x->age;
 }
 
-
-void writeCandidate(Candidate *ptr ){
- cout << "\n name:" << (* ptr).name << "\n age:" << (* ptr).age <<endl;
+void printCandidate(Candidate *x){
+ cout << "\n name:" <<  x->name << "\n age:" << x->age <<endl;
 }
-
 
 int main (){
   Candidate candidate;
-  Candidate *ptr;
-  ptr = &candidate;
-  readCandidate(&candidate );
-  writeCandidate(&candidate);
+  Candidate *ptr= &candidate;
+  readCandidate(ptr);
+  writeCandidate(ptr);
 }
