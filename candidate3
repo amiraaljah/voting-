@@ -8,9 +8,9 @@ struct Candidate{
 };
 
 void readCandidate(Candidate *x){
-  cout << "Enter the candidate name: \n" 
+  cout << "Enter the candidate name: \n"; 
   cin >>  x->name;
-  cout << "Enter the candidate age: \n " 
+  cout << "Enter the candidate age: \n " ;
   cin >>  x->age;
 }
 
