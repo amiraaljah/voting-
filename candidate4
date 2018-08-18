@@ -1,30 +1,28 @@
-#include <fstream>
 #include <iostream>
+#include <string>
 using namespace std;
 
-int main () {
+struct Candidate{
+  int age;
+  string name;
+};
 
-   for (int i=0; i < 3; i++){
-   
-   char arr[100];
-   ofstream outfile;
-   outfile.open("ameera.txt");
-   cout << "Enter Candidate name: ";
-   cin.getline(arr, 100);
-   outfile << arr << endl;
-   cout << "Enter Candidate age: ";
-   cin >> arr;
-   cin.ignore();
-   outfile << arr << endl;
-   outfile.close();
-   ifstream infile;
-   infile.open("ameera.txt");
-   infile >> arr;
-   cout << arr << endl;
-   infile >> arr;
-   cout << arr << endl;
-   infile.close();
-    }
-    
-   return 0;
+void readCandidate(Candidate *x){
+  cout << "Enter the candidate name: \n";
+  cin >>  x->name;
+  cout << "Enter the candidate age: \n " ;
+  cin >>  x->age;
+}
+
+void printCandidate(Candidate *x){
+ cout << "\n name:" <<  x->name << "\n age:" << x->age <<endl;
+}
+
+int main (){
+  Candidate candidate;
+  Candidate *ptr= &candidate;
+  for  (int i=0; i<3; i++){
+    readCandidate(ptr);
+  printCandidate(ptr);
+  }
 }
