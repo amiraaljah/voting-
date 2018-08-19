@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Candidate {
+  int candidateNum;
+	string name;
+	int age;
+};
+
+void readCandidate(Candidate arr[]) {
+	for (int i = 0; i < 3; i++) {
+
+		 arr[i].candidateNum = i+1;
+     cout << "For candidate number" << arr[i].candidateNum << ":"<< endl;
+
+		 cout << "Enter  candidate  name: ";
+     cin >> arr[i].name;
+
+      cout << "Enter candidate  age:";
+      cin >> arr[i].age;
+
+      cout << " \n" ;
+	}
+}
+ void printCandidate(Candidate arr[]) {
+	for (int i = 0; i < 3; i++) {
+
+		  cout << "For candidate number:"<< i+1 << endl;
+      cout << "Name: " << arr[i].name << endl;
+      cout << "age: " << arr[i].age << endl;
+	}
+}
+ int main() {
+	Candidate candidates[3];
+	Candidate *groupOfCandidates = candidates;
+
+	readCandidate(groupOfCandidates);
+	printCandidate(groupOfCandidates);
+ }
