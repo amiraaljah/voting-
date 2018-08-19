@@ -9,16 +9,36 @@ struct Candidate {
 };
 
 
+void readCandidate(Candidate x[]) {
+	for (int i = 0; i < 3; i++) {
+		cout << "please enter your name: \n";
+		cin >> x[i].name;
+		cout << "please enter your age: \n";
+		cin >> x[i].num;
+	}
+}
+void printCandidate(Candidate x[]) {
+	for (int i = 0; i < 3; i++) {
+		cout << "here is candidate name: \n" << x[i].name << endl;
+		cout << "here is candidate age: \n" << x[i].num<< endl;
+	}
+}
 int main() {
-		ifstream fin("input.txt");
-		ofstream fout("output.txt");
-		string  Arr[6];
+	Candidate candidates[3];
+	Candidate *groupOfCandidates = candidates;
+	ifstream fin("input.txt");
+	ofstream fout("output.txt");
 
-		for (int i = 0; i <6; i++){
-				fin >> Arr[i];
-				cout << Arr[i] << endl;
-				fout << Arr[i] << endl;	
-		}
-		system("pause");
-		return 0;
-} 
+	for (int i = 0; i < 3; i++) {
+
+		fin >> candidates[i].name;
+		fin >> candidates[i].num;
+		cout << candidates[i].name << endl;
+		cout << candidates[i].num << endl;
+		fout << " candidate name: " << candidates[i].name << endl;
+		fout << " candidate number:" << candidates[i].num << endl;
+		
+	}
+	
+	system("pause");
+	return 0;
