@@ -31,7 +31,8 @@ void printCandidate(Candidate x[]) {
 	ofstream fout;
 	fout.open("output.txt");
 	if (!fout) {
-		cout << "unable to write to the  file";
+		cout << "unable to write to the  file output.text";
+		exit(1);
 	}
 	else {
 		for (int i = 0; i < 3; i++) {
