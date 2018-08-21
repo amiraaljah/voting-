@@ -9,35 +9,47 @@ struct Candidate {
 };
 
 void readCandidate(Candidate x[]) {
-	for (int i = 0; i < 3; i++) {
-		cout << "please enter your name: \n";
-		cin >> x[i].name;
-		cout << "please enter your age: \n";
-		cin >> x[i].num;
+	ifstream fin;
+	fin.open("input.txt");
+	if (!fin) {
+		cout << "unable to open the file input.txt ";
+		exit(1);
 	}
+	else {
+		for (int i = 0; i < 3; i++) {
+			fin >> x[i].name;
+			fin >> x[i].num;
+			cout << x[i].name << endl;
+			cout << x[i].num << endl;
+		}
+		fin.close();
+	}
+
 }
+
 void printCandidate(Candidate x[]) {
-	for (int i = 0; i < 3; i++) {
-		cout << "here is candidate name: \n" << x[i].name << endl;
-		cout << "here is candidate age: \n" << x[i].num<< endl;
+	ofstream fout;
+	fout.open("output.txt");
+	if (!fout) {
+		cout << "unable to write to the  file";
 	}
+	else {
+		for (int i = 0; i < 3; i++) {
+			fout << " candidate name: " << x[i].name << endl;
+			fout << " candidate number:" << x[i].num << endl;
+		}
+		fout.close();
+	}
+
 }
+
 int main() {
 	Candidate candidates[3];
 	Candidate *groupOfCandidates = candidates;
-	ifstream fin("input.txt");
-	ofstream fout("output.txt");
 
-	for (int i = 0; i < 3; i++) {
+	readCandidate(groupOfCandidates);
+	printCandidate(groupOfCandidates);
 
-		fin >> candidates[i].name;
-		fin >> candidates[i].num;
-		cout << candidates[i].name << endl;
-		cout << candidates[i].num << endl;
-		fout << " candidate name: " << candidates[i].name << endl;
-		fout << " candidate number:" << candidates[i].num << endl;
-		
-	}
-	
 	system("pause");
 	return 0;
+}
