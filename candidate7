@@ -32,14 +32,16 @@ void printCandidate(Candidate x[]) {
 		cout << "unable to write to the  file output.text";
 		exit(1);
 	}
-	else {
+	else {  
+	        cout << "================================\n";
+	        cout << setw(10) << "Name" << setw(10) << "Num" << endl;
+	        cout << "================================\n";
 		for (int i = 0; i < 3; i++) {
-			fout << " candidate name: " << x[i].name << endl;
-			fout << " candidate number:" << x[i].num << endl;
+		cout << setw(10) << x[i].name << setw(10) << x[i].num << endl;
 		}
+		cout << "================================\n";
 		fout.close();
 	}
-
 }
 
 int main() {
