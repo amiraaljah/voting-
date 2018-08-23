@@ -1,0 +1,57 @@
+#include<iostream>
+#include<fstream>
+#include<string>
+#include<iomanip>
+using namespace std;
+
+struct Candidate {
+	string name;
+	int num;
+};
+
+void readCandidate(Candidate x[]) {
+	ifstream fin;
+	fin.open("input.txt");
+	if (!fin) {
+		cout << "unable to open the file input.txt ";
+		exit(1);
+	}
+	else {
+		for (int i = 0; i < !fin.eof(); i++) {
+			fin >> x[i].name;
+			fin >> x[i].num;
+		}
+		fin.close();
+	}
+
+}
+
+void printCandidate(Candidate x[]) {
+	ofstream fout;
+	fout.open("output.txt");
+	if (!fout) {
+		cout << "unable to write to the  file output.text";
+		exit(1);
+	}
+	else {  
+	        cout << "================================\n";
+	        cout << setw(10) << "Name" << setw(10) << "Num" << endl;
+	        cout << "================================\n";
+		for (int i = 0; i < 100; i++) {
+		cout << setw(10) << x[i].name << setw(10) << x[i].num << endl;
+		}
+		cout << "================================\n";
+		fout.close();
+	}
+}
+
+int main() {
+	Candidate candidates[100];
+	Candidate *groupOfCandidates = candidates;
+
+	readCandidate(groupOfCandidates);
+	printCandidate(groupOfCandidates);
+
+	system("pause");
+	return 0;
+}
